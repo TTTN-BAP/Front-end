@@ -1,9 +1,11 @@
 import http from 'src/modules/Share/utils/http'
-import { FormSignInType } from '../utils'
+import { FormRegisterType, FormSignInType } from '../utils'
 import { AuthResponse } from '../interfaces'
 
 const authAPI = {
-  signIn: (body: FormSignInType) => http.post<AuthResponse>('/auth/sign-in', body)
+  signIn: (body: FormSignInType) => http.post<AuthResponse>('/auth/sign-in', body),
+
+  register: (body: FormRegisterType) => http.post('/auth/register', body)
 }
 
 export default authAPI

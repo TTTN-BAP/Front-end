@@ -1,4 +1,4 @@
-import { Suspense, lazy, useContext } from 'react'
+import { Suspense, useContext } from 'react'
 import { Navigate, Outlet, useRoutes } from 'react-router-dom'
 import path from 'src/modules/Share/constants/path'
 import { AppContext } from '../contexts/app.context'
@@ -7,6 +7,7 @@ import AuthenticationLayout from '../layouts/AuthenticationLayout'
 import SignIn from 'src/modules/Authentication/pages/SignIn'
 import HomePageLayout from '../layouts/HomePageLayout'
 import HomePage from 'src/modules/HomePage/pages/HomePage'
+import Register from 'src/modules/Authentication/pages/Register'
 
 const PublicRoute = () => {
   const { isAuthenticated } = useContext(AppContext)
@@ -30,6 +31,16 @@ const useRouteElements = () => {
             <AuthenticationLayout>
               <Suspense>
                 <SignIn />
+              </Suspense>
+            </AuthenticationLayout>
+          )
+        },
+        {
+          path: path.register,
+          element: (
+            <AuthenticationLayout>
+              <Suspense>
+                <Register />
               </Suspense>
             </AuthenticationLayout>
           )

@@ -1,8 +1,9 @@
 import JobItem from '../JobItem'
 
-function Container() {
+const Container = () => {
   return (
-    <div>
+    <div className='flex flex-col gap-y-4'>
+      <JobItem />
       <JobItem />
     </div>
   )

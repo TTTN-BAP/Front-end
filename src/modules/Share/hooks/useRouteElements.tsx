@@ -9,7 +9,7 @@ import HomePageLayout from '../layouts/HomePageLayout'
 import HomePage from 'src/modules/HomePage/pages/HomePage'
 import Register from 'src/modules/Authentication/pages/Register'
 
-const PublicRoute = () => {
+const ProtectedRoute = () => {
   const { isAuthenticated } = useContext(AppContext)
   return !isAuthenticated ? <Outlet /> : <Navigate to={path.login} />
 }

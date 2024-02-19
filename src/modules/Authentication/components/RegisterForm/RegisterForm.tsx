@@ -149,7 +149,7 @@ const RegisterForm = ({ register, errors }: Props) => {
         type={isHiddenPassword ? 'password' : 'text'}
         className='flex flex-col relative'
         classNameInput='border-[2px] border-[#26C6DA] rounded-md lg:py-2 md:pl-10 max-md:pl-4 pr-4 outline-none lg:h-[48px] md:h-[36px] max-md:h-[24px] lg:text-[16px] md:text-[12px] max-md:text-[8px]'
-        error={errors.password?.message}
+        error={errors.confirmPassword?.message}
       >
         <div className='absolute lg:left-[4px] lg:top-[8px] md:top-[4px] md:left-[5px] max-md:top-[2.5px] max-md:left-[-4px] cursor-pointer px-2 py-1 text-[#26C6DA]'>
           <svg
@@ -219,12 +219,18 @@ const RegisterForm = ({ register, errors }: Props) => {
         >
           Trang chủ
         </Link>
+        <Link
+          to={path.login}
+          className='lg:text-[16px] md:text-[12px] max-md:text-[8px] text-right text-[#195E8E] font-semibold md:mb-4 max-md:mb-2 hover:text-[#195E8E]/60 hover:underline'
+        >
+          Đăng nhập
+        </Link>
       </div>
       <Button
         type='submit'
         classNameButton='w-full bg-[#195E8E] hover:bg-[#195E8E]/80 p-2 max-md:p-1 rounded-xl lg:text-[18px] md:text-[14px] max-md:text-[10px] text-white font-semibold'
       >
-        Đăng nhập
+        Đăng kí
       </Button>
     </div>
   )

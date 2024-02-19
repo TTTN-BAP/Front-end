@@ -18,8 +18,8 @@ const SignInForm = ({ register, errors }: Props) => {
     <div className='flex flex-col lg:gap-2 md:gap-1'>
       <Input
         register={register}
-        id='userNameOrEmail'
-        name='userNameOrEmail'
+        id='email'
+        name='email'
         placeholder='Nhập Email'
         className='flex flex-col relative'
         classNameInput='border-[2px] border-[#26C6DA] rounded-md lg:py-2 md:pl-10 max-md:pl-4 pr-4 outline-none lg:h-[48px] md:h-[36px] max-md:h-[24px] lg:text-[16px] md:text-[12px] max-md:text-[8px]'
@@ -120,6 +120,12 @@ const SignInForm = ({ register, errors }: Props) => {
           className='lg:text-[16px] md:text-[12px] max-md:text-[8px] text-right text-[#195E8E] font-semibold md:mb-4 max-md:mb-2 hover:text-[#195E8E]/60 hover:underline'
         >
           Trang chủ
+        </Link>
+        <Link
+          to={path.register}
+          className='lg:text-[16px] md:text-[12px] max-md:text-[8px] text-right text-[#195E8E] font-semibold md:mb-4 max-md:mb-2 hover:text-[#195E8E]/60 hover:underline'
+        >
+          Đăng kí
         </Link>
       </div>
       <Button

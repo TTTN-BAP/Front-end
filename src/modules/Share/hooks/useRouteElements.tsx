@@ -8,6 +8,7 @@ import SignIn from 'src/modules/Authentication/pages/SignIn'
 import HomePageLayout from '../layouts/HomePageLayout'
 import HomePage from 'src/modules/HomePage/pages/HomePage'
 import Register from 'src/modules/Authentication/pages/Register'
+import DetailPage from 'src/modules/HomePage/pages/DetailPage'
 
 const ProtectedRoute = () => {
   const { isAuthenticated } = useContext(AppContext)
@@ -53,6 +54,16 @@ const useRouteElements = () => {
         <HomePageLayout>
           <Suspense>
             <HomePage />
+          </Suspense>
+        </HomePageLayout>
+      )
+    },
+    {
+      path: path.detail,
+      element: (
+        <HomePageLayout>
+          <Suspense>
+            <DetailPage />
           </Suspense>
         </HomePageLayout>
       )

@@ -3,7 +3,7 @@ import path from 'src/modules/Share/constants/path'
 
 const Header = () => {
   return (
-    <div className='flex gap-4 items-center justify-between px-8 py-4'>
+    <div className='flex gap-4 items-center justify-between px-8 py-4 sticky top-0 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>
       <Link to={path.home} className='flex flex-col items-center'>
         <span className='text-[44px] font-semibold text-[#272b66]'>Job Description</span>
         <span className='text-[18px] text-[#272b66]'>Leading the human resources industry</span>

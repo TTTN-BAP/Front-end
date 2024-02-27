@@ -142,8 +142,8 @@ const RegisterForm = ({ register, errors }: Props) => {
       </Input>
       <Input
         register={register}
-        id='confirm_password'
-        name='confirm_password'
+        id='confirmPassword'
+        name='confirmPassword'
         placeholder='Xác nhận mật khẩu'
         autoComplete='on'
         type={isHiddenPassword ? 'password' : 'text'}

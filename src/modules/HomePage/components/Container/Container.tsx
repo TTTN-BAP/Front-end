@@ -2,8 +2,7 @@ import JobItem from '../JobItem'
 
 const Container = () => {
   return (
-    <div className='grid grid-cols-2 flex-col gap-y-4 mx-12 '>
-      <JobItem />
+    <div className='gap-y-4 mx-12 gap-6'>
       <JobItem />
       <JobItem />
       <JobItem />

@@ -1,14 +1,18 @@
 const JobItem = () => {
   return (
-    <div className='flex gap-4 col-span-1'>
+    <div className='flex gap-4 px-4 py-8 border-t-[1px] border-gray-300'>
       <div>
-        <img src='./' alt='' className='h-[200px] w-[200px] rounded-lg' />
+        <img
+          src='https://images.careerviet.vn/employer_folders/lot8/285358/155x155/94054logo-gf.png'
+          alt=''
+          className='h-[200px] w-[200px] rounded-lg border-[1px] border-gray-300'
+        />
       </div>
-      <div className='flex flex-col justify-center'>
+      <div className='flex flex-col justify-center gap-2'>
         <span className='text-[26px] font-semibold'>Senior Sales Planning Manager</span>
-        <span>Ninja Van Việt Nam</span>
-        <div className='flex'>
-          <div>
+        <span className='uppercase text-gray-500'>Ninja Van Việt Nam</span>
+        <div className='flex text-[#188038]'>
+          <div className='w-[28px]'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               fill='none'
@@ -28,22 +32,27 @@ const JobItem = () => {
           <span>Cạnh tranh</span>
         </div>
         <div className='flex'>
-          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512' className='w-4'>
-            <path d='M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z' />
-          </svg>
+          <div className='w-[28px]'>
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512' className='w-4 ml-1'>
+              <path d='M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z' />
+            </svg>
+          </div>
           <span>Hồ Chí Minh</span>
         </div>
         <div className='flex'>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
-            strokeWidth={1.5}
-            stroke='currentColor'
-            className='w-6 h-6'
-          >
-            <path strokeLinecap='round' strokeLinejoin='round' d='M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z' />
-          </svg>
+          <div className='w-[28px]'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
+              strokeWidth={1.5}
+              stroke='currentColor'
+              className='w-6 h-6'
+            >
+              <path strokeLinecap='round' strokeLinejoin='round' d='M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z' />
+            </svg>
+          </div>
+
           <div>Hạn nộp</div>
           <div>18-3-2024</div>
         </div>

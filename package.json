@@ -13,10 +13,18 @@
     "prettier:fix": "prettier --write \"src/**/(*.tsx|*ts|*.css|*.scss)\""
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.3.4",
+    "@mui/material": "^5.15.12",
+    "@mui/x-date-pickers": "^6.19.6",
     "@tanstack/react-query": "^5.17.19",
     "@tanstack/react-query-devtools": "^5.17.21",
+    "@types/lodash": "^4.14.202",
     "axios": "^1.6.7",
+    "classnames": "^2.5.1",
+    "lodash": "^4.17.21",
+    "nodemon": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.4",

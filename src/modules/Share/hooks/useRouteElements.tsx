@@ -9,6 +9,7 @@ import HomePageLayout from '../layouts/HomePageLayout'
 import HomePage from 'src/modules/HomePage/pages/HomePage'
 import Register from 'src/modules/Authentication/pages/Register'
 import DetailPage from 'src/modules/HomePage/pages/DetailPage'
+import ProfilePage from 'src/modules/Profile/pages/ProfilePage'
 
 const ProtectedRoute = () => {
   const { isAuthenticated } = useContext(AppContext)
@@ -17,7 +18,7 @@ const ProtectedRoute = () => {
 
 const RejectedRoute = () => {
   const { isAuthenticated } = useContext(AppContext)
-  return isAuthenticated ? <Outlet /> : <Navigate to={path.home} />
+  return !isAuthenticated ? <Outlet /> : <Navigate to={path.home} />
 }
 
 const useRouteElements = () => {
@@ -54,6 +55,16 @@ const useRouteElements = () => {
         <HomePageLayout>
           <Suspense>
             <HomePage />
+          </Suspense>
+        </HomePageLayout>
+      )
+    },
+    {
+      path: path.profile,
+      element: (
+        <HomePageLayout>
+          <Suspense>
+            <ProfilePage />
           </Suspense>
         </HomePageLayout>
       )

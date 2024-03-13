@@ -1,16 +1,38 @@
-const JobItem = () => {
+import { createSearchParams, useNavigate } from 'react-router-dom'
+import { JobType } from '../../interfaces'
+import path from 'src/modules/Share/constants/path'
+
+interface Props {
+  job: JobType
+}
+
+const JobItem = ({ job }: Props) => {
+  const navigate = useNavigate()
+
+  const getDetailJob = (id: number) => {
+    navigate({
+      pathname: path.detail,
+      search: createSearchParams({
+        id: id.toString()
+      }).toString()
+    })
+  }
+
   return (
-    <div className='flex gap-4 px-4 py-8 border-t-[1px] border-gray-300'>
-      <div>
+    <div
+      className='flex gap-4 px-4 py-8 border-t-[1px] border-gray-300 cursor-pointer hover:bg-slate-100'
+      onClick={() => getDetailJob(job.id)}
+    >
+      <div className='mix-h-[200px] min-w-[200px]'>
         <img
-          src='https://images.careerviet.vn/employer_folders/lot8/285358/155x155/94054logo-gf.png'
+          src={job.company_logo}
           alt=''
-          className='h-[200px] w-[200px] rounded-lg border-[1px] border-gray-300'
+          className='h-full w-full rounded-lg border-[1px] border-gray-300 object-contain'
         />
       </div>
       <div className='flex flex-col justify-center gap-2'>
-        <span className='text-[26px] font-semibold'>Senior Sales Planning Manager</span>
-        <span className='uppercase text-gray-500'>Ninja Van Việt Nam</span>
+        <span className='text-[26px] font-semibold'>{job.job_name}</span>
+        <span className='uppercase text-gray-500'>{job.company_name}</span>
         <div className='flex text-[#188038]'>
           <div className='w-[28px]'>
             <svg
@@ -28,8 +50,8 @@ const JobItem = () => {
               />
             </svg>
           </div>
-          <span>Lương:</span>
-          <span>Cạnh tranh</span>
+          <span>Lương: </span>
+          <span>{job.job_salary}</span>
         </div>
         <div className='flex'>
           <div className='w-[28px]'>
@@ -37,7 +59,7 @@ const JobItem = () => {
               <path d='M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z' />
             </svg>
           </div>
-          <span>Hồ Chí Minh</span>
+          <span>{job.job_address}</span>
         </div>
         <div className='flex'>
           <div className='w-[28px]'>
@@ -54,7 +76,7 @@ const JobItem = () => {
           </div>
 
           <div>Hạn nộp</div>
-          <div>18-3-2024</div>
+          <div>{job.job_expired_date}</div>
         </div>
         <div className='flex'>
           <div>

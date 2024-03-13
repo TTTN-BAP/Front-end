@@ -1,6 +1,6 @@
 const path = {
   home: '/home',
-  detail: '/job/:id',
+  detail: '/job',
   login: '/login',
   register: '/register',
   logout: '/logout',

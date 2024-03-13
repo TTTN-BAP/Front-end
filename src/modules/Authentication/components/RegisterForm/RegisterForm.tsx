@@ -18,12 +18,12 @@ const RegisterForm = ({ register, errors }: Props) => {
     <div className='flex flex-col lg:gap-2 md:gap-1'>
       <Input
         register={register}
-        id='userName'
-        name='userName'
-        placeholder='Nhập Họ và tên'
+        id='username'
+        name='username'
+        placeholder='Nhập Tên đăng nhập'
         className='flex flex-col relative'
         classNameInput='border-[2px] border-[#26C6DA] rounded-md lg:py-2 md:pl-10 max-md:pl-4 pr-4 outline-none lg:h-[48px] md:h-[36px] max-md:h-[24px] lg:text-[16px] md:text-[12px] max-md:text-[8px]'
-        error={errors.userName?.message}
+        error={errors.username?.message}
       >
         <div className='absolute lg:left-[4px] lg:top-[8px] md:top-[4px] md:left-[5px] max-md:top-[2.5px] max-md:left-[-4px] cursor-pointer px-2 py-1 text-[#26C6DA]'>
           <svg

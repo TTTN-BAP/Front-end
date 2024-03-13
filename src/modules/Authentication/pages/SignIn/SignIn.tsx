@@ -30,9 +30,11 @@ const SignIn = () => {
       data,
       () => {
         setIsAuthenticated(true)
-        navigate(path.profile)
+        navigate(path.home)
       },
-      (error: any) => {}
+      (error: any) => {
+        console.log(error)
+      }
     )
   })
 

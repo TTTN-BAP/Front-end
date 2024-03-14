@@ -7,7 +7,6 @@ import HttpStatusCode from '../constants/httpStatusCode'
 class Http {
   instance: AxiosInstance
   private accessToken: string
-
   constructor() {
     this.accessToken = getAccessTokenFromLocalStorage()
     this.instance = axios.create({

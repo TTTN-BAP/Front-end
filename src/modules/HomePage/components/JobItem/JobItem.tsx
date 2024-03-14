@@ -34,7 +34,7 @@ const JobItem = ({ job }: Props) => {
       <div className='flex flex-col justify-center gap-2'>
         <span className='text-[26px] font-semibold'>{job.job_name}</span>
         <span className='uppercase text-gray-500'>{job.company_name}</span>
-        <div className='flex '>
+        <div className='flex'>
           <div className='w-[28px]'>
             <svg
               xmlns='http://www.w3.org/2000/svg'

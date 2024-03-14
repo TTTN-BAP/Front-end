@@ -4,6 +4,7 @@ import { Control, Controller, UseFormSetValue } from 'react-hook-form'
 import { ProfileType } from '../../interfaces'
 import { FormProfileType } from '../../utils'
 import Button from 'src/modules/Share/components/Button'
+import { formatDate } from 'src/modules/Share/utils'
 
 interface Props {
   control: Control<FormProfileType>
@@ -42,37 +43,22 @@ const Profile = ({ control, profile, setValue, isLoading }: Props) => {
   }
   return (
     <Fragment>
-      <div className='grid grid-cols-3 lg:gap-x-6 lg:gap-y-4 md:gap-x-4 md:gap-y-3 max-md:gap-x-2 max-md:gap-y-2 m-12'>
+      <div className='grid grid-cols-2 gap-x-6 gap-y-2'>
         <Controller
           name='cv_name'
           control={control}
           defaultValue=''
-          render={({ field: { onChange, value = profile && profile.cv_name } }) => (
-            <div className='w-full'>
+          render={({ field: { onChange, value = profile && profile.cv_name }, fieldState: { error } }) => (
+            <div className='col-span-1'>
               <TextField
                 id='code'
                 label='Họ và tên'
                 value={value}
                 placeholder='Nhập Họ và tên'
                 className='w-full bg-white'
-                sx={{
-                  '& .MuiInputBase-root': {
-                    '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                      sm: {
-                        padding: '10px 14px',
-                        height: '28px',
-                        fontSize: '14px'
-                      },
-                      xs: {
-                        padding: '8px 10px',
-                        height: '20px',
-                        fontSize: '10px'
-                      }
-                    }
-                  }
-                }}
                 onChange={onChange}
               />
+              <span className='block min-h-[16px] text-red-600 text-xs mt-1 font-medium'>{error?.message}</span>
             </div>
           )}
         />
@@ -81,65 +67,37 @@ const Profile = ({ control, profile, setValue, isLoading }: Props) => {
           control={control}
           defaultValue=''
           render={({ field: { onChange, value = profile && profile.cv_email }, fieldState: { error } }) => (
-            <div>
+            <div className='col-span-1'>
               <TextField
                 id='email'
                 label='Email'
                 value={value}
                 placeholder='Nhập Email'
                 className='w-full bg-white'
-                sx={{
-                  '& .MuiInputBase-root': {
-                    '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                      sm: {
-                        padding: '10px 14px',
-                        height: '28px',
-                        fontSize: '14px'
-                      },
-                      xs: {
-                        padding: '8px 10px',
-                        height: '20px',
-                        fontSize: '10px'
-                      }
-                    }
-                  }
-                }}
                 onChange={onChange}
               />
               <span className='block min-h-[16px] text-red-600 text-xs mt-1 font-medium'>{error?.message}</span>
             </div>
           )}
         />
-
         <Controller
           name='cv_birthday'
           control={control}
           defaultValue=''
-          render={({ field: { onChange, value = profile && profile.cv_birthday } }) => (
-            <div>
+          render={({
+            field: { onChange, value = profile && formatDate(profile.cv_birthday) },
+            fieldState: { error }
+          }) => (
+            <div className='col-span-1'>
               <TextField
                 id='birth'
                 label='Ngày sinh'
+                placeholder='Nhập ngày sinh'
                 value={value}
                 className='w-full bg-white'
-                sx={{
-                  '& .MuiInputBase-root': {
-                    '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                      sm: {
-                        padding: '10px 14px',
-                        height: '28px',
-                        fontSize: '14px'
-                      },
-                      xs: {
-                        padding: '8px 10px',
-                        height: '20px',
-                        fontSize: '10px'
-                      }
-                    }
-                  }
-                }}
                 onChange={onChange}
               />
+              <span className='block min-h-[16px] text-red-600 text-xs mt-1 font-medium'>{error?.message}</span>
             </div>
           )}
         />
@@ -148,29 +106,13 @@ const Profile = ({ control, profile, setValue, isLoading }: Props) => {
           control={control}
           defaultValue=''
           render={({ field: { onChange, value = profile && profile.cv_sdt }, fieldState: { error } }) => (
-            <div>
+            <div className='col-span-1'>
               <TextField
                 id='phone'
                 label='Số điện thoại'
                 value={value}
                 placeholder='Nhập số điện thoại'
                 className='w-full bg-white'
-                sx={{
-                  '& .MuiInputBase-root': {
-                    '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                      sm: {
-                        padding: '10px 14px',
-                        height: '28px',
-                        fontSize: '14px'
-                      },
-                      xs: {
-                        padding: '8px 10px',
-                        height: '20px',
-                        fontSize: '10px'
-                      }
-                    }
-                  }
-                }}
                 onChange={onChange}
               />
               <span className='block min-h-[16px] text-red-600 text-xs mt-1 font-medium'>{error?.message}</span>
@@ -181,65 +123,17 @@ const Profile = ({ control, profile, setValue, isLoading }: Props) => {
           name='cv_academi_level'
           control={control}
           defaultValue=''
-          render={({ field: { onChange, value = profile && profile.cv_academi_level } }) => (
-            <div>
+          render={({ field: { onChange, value = profile && profile.cv_academi_level }, fieldState: { error } }) => (
+            <div className='col-span-1'>
               <TextField
                 id='cv_academi_level'
                 label='Cấp bậc'
                 value={value}
                 placeholder='Nhập cấp bậc'
                 className='w-full bg-white'
-                sx={{
-                  '& .MuiInputBase-root': {
-                    '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                      sm: {
-                        padding: '10px 14px',
-                        height: '28px',
-                        fontSize: '14px'
-                      },
-                      xs: {
-                        padding: '8px 10px',
-                        height: '20px',
-                        fontSize: '10px'
-                      }
-                    }
-                  }
-                }}
                 onChange={onChange}
               />
-            </div>
-          )}
-        />
-        <Controller
-          name='cv_skill'
-          control={control}
-          defaultValue=''
-          render={({ field: { onChange, value = profile && profile.cv_skill } }) => (
-            <div>
-              <TextField
-                id='cv_skill'
-                label='Kĩ năng bản thân'
-                placeholder='Nhập kĩ năng bản thân'
-                value={value}
-                className='w-full bg-white'
-                sx={{
-                  '& .MuiInputBase-root': {
-                    '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                      sm: {
-                        padding: '10px 14px',
-                        height: '28px',
-                        fontSize: '14px'
-                      },
-                      xs: {
-                        padding: '8px 10px',
-                        height: '20px',
-                        fontSize: '10px'
-                      }
-                    }
-                  }
-                }}
-                onChange={onChange}
-              />
+              <span className='block min-h-[16px] text-red-600 text-xs mt-1 font-medium'>{error?.message}</span>
             </div>
           )}
         />
@@ -248,29 +142,13 @@ const Profile = ({ control, profile, setValue, isLoading }: Props) => {
           control={control}
           defaultValue=''
           render={({ field: { onChange, value = profile && profile.cv_work_experience }, fieldState: { error } }) => (
-            <div>
+            <div className='col-span-1'>
               <TextField
                 id='cv_work_experience'
                 label='Kinh nghiệm bản thân'
                 value={value}
                 placeholder='Nhập kinh nghiệm bản thân'
                 className='w-full bg-white'
-                sx={{
-                  '& .MuiInputBase-root': {
-                    '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                      sm: {
-                        padding: '10px 14px',
-                        height: '28px',
-                        fontSize: '14px'
-                      },
-                      xs: {
-                        padding: '8px 10px',
-                        height: '20px',
-                        fontSize: '10px'
-                      }
-                    }
-                  }
-                }}
                 onChange={onChange}
               />
               <span className='block min-h-[16px] text-red-600 text-xs mt-1 font-medium'>{error?.message}</span>
@@ -278,34 +156,41 @@ const Profile = ({ control, profile, setValue, isLoading }: Props) => {
           )}
         />
         <Controller
+          name='cv_skill'
+          control={control}
+          defaultValue=''
+          render={({ field: { onChange, value = profile && profile.cv_skill }, fieldState: { error } }) => (
+            <div className='col-span-1'>
+              <TextField
+                id='cv_skill'
+                label='Kĩ năng bản thân'
+                placeholder='Nhập kĩ năng bản thân'
+                value={value}
+                className='w-full bg-white'
+                onChange={onChange}
+                multiline
+                rows={3}
+              />
+              <span className='block min-h-[16px] text-red-600 text-xs mt-1 font-medium'>{error?.message}</span>
+            </div>
+          )}
+        />
+
+        <Controller
           name='cv_target'
           control={control}
           defaultValue=''
           render={({ field: { onChange, value = profile && profile.cv_target }, fieldState: { error } }) => (
-            <div>
+            <div className='col-span-1'>
               <TextField
                 id='cv_target'
                 label='Định hướng'
                 value={value}
                 placeholder='Nhập định hướng'
                 className='w-full bg-white'
-                sx={{
-                  '& .MuiInputBase-root': {
-                    '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                      sm: {
-                        padding: '10px 14px',
-                        height: '28px',
-                        fontSize: '14px'
-                      },
-                      xs: {
-                        padding: '8px 10px',
-                        height: '20px',
-                        fontSize: '10px'
-                      }
-                    }
-                  }
-                }}
                 onChange={onChange}
+                multiline
+                rows={3}
               />
               <span className='block min-h-[16px] text-red-600 text-xs mt-1 font-medium'>{error?.message}</span>
             </div>
@@ -316,35 +201,21 @@ const Profile = ({ control, profile, setValue, isLoading }: Props) => {
           control={control}
           defaultValue=''
           render={({ field: { onChange, value = profile && profile.cv_interest } }) => (
-            <div>
+            <div className='col-span-1'>
               <TextField
                 id='cv_interest'
                 label='Sơ thích bản thân'
                 value={value}
                 placeholder='Nhập sở thích bản thân'
                 className='w-full bg-white'
-                sx={{
-                  '& .MuiInputBase-root': {
-                    '& .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input': {
-                      sm: {
-                        padding: '10px 14px',
-                        height: '28px',
-                        fontSize: '14px'
-                      },
-                      xs: {
-                        padding: '8px 10px',
-                        height: '20px',
-                        fontSize: '10px'
-                      }
-                    }
-                  }
-                }}
                 onChange={onChange}
+                multiline
+                rows={3}
               />
             </div>
           )}
         />
-        <div className='flex md:justify-end max-md:justify-center gap-6 py-5 col-span-3'>
+        <div className='flex md:justify-end max-md:justify-center gap-6 py-6 col-span-1'>
           <Button
             onClick={handleReset}
             type='button'
@@ -355,7 +226,7 @@ const Profile = ({ control, profile, setValue, isLoading }: Props) => {
           <Button
             isLoading={isLoading}
             type='submit'
-            classNameButton='bg-[#26C6DA] py-2 md:px-4 max-md:px-2 rounded-lg md:text-[16px] max-md:text-[12px] text-white font-semibold w-[90px]'
+            classNameButton='bg-[#182642] py-2 md:px-4 max-md:px-2 rounded-lg md:text-[16px] max-md:text-[12px] text-white font-semibold w-[90px]'
           >
             Lưu
           </Button>

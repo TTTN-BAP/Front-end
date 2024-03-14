@@ -1,19 +1,13 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { GetUserIdQuery } from 'src/modules/Authentication/services'
-import { GetProfileQuery } from 'src/modules/Profile/services/getProfile.query'
+import { Link, useNavigate } from 'react-router-dom'
+import Button from 'src/modules/Share/components/Button'
 import path from 'src/modules/Share/constants/path'
 import { AppContext } from 'src/modules/Share/contexts'
 
 const Header = () => {
   const { isAuthenticated } = useContext(AppContext)
 
-  const getUserId = new GetUserIdQuery(isAuthenticated)
-  const userId = getUserId.fetch()
-
-  const getProfileQuery = new GetProfileQuery(isAuthenticated, userId)
-  const profile = getProfileQuery.fetch()
-  console.log(userId)
+  const navigate = useNavigate()
 
   return (
     <div className='flex gap-4 items-center justify-between px-8 py-4 sticky top-0 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-50'>
@@ -35,8 +29,28 @@ const Header = () => {
           Cẩm nang
         </Link>
       </div>
-      {profile ? (
-        <div>{profile.cv_name}</div>
+      {isAuthenticated ? (
+        <Button
+          type='button'
+          classNameButton='flex gap-3 px-4 py-2 rounded-3xl bg-slate-100 hover:bg-slate-200'
+          onClick={() => {
+            navigate(path.profile)
+          }}
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 24 24'
+            fill='currentColor'
+            className='w-6 h-6 text-[#969696]'
+          >
+            <path
+              fillRule='evenodd'
+              d='M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z'
+              clipRule='evenodd'
+            />
+          </svg>
+          <span>Tài khoản</span>
+        </Button>
       ) : (
         <div className='flex text-[#5d677a]'>
           <Link to={'#!'} className='px-4 hover:text-[#eecd24]'>

@@ -11,11 +11,11 @@ class EditProfileCommandHandler {
   constructor() {
     this._queryClient = useQueryClient()
     this._editProfileMutation = useMutation({
-      mutationFn: (body: { data: FormProfileType }) => profileAPI.editProfile(body)
+      mutationFn: (body: { id: string; data: FormProfileType }) => profileAPI.editProfile(body)
     })
   }
 
-  handle = async (body: { data: FormProfileType }, handleSuccess: any, handleError: any) => {
+  handle = async (body: { id: string; data: FormProfileType }, handleSuccess: any, handleError: any) => {
     return this._editProfileMutation.mutate(body, {
       onSuccess: () => {
         this._queryClient.invalidateQueries({

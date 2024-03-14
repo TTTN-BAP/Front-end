@@ -67,7 +67,7 @@ const Pagination = ({ queryConfig, pageSize, pathname, className, setPage }: Pro
             classNameButton={classNames(
               'mx-1 flex h-8 w-8 cursor-pointer items-center justify-center text-center text-gray-600 shadow-sm rounded border-[1px]',
               {
-                'bg-[#26C6DA]/30  border-[#26C6DA] ': pageNumber === page,
+                'bg-[#182642]/30  border-[#182642] ': pageNumber === page,
                 'border-x-gray-200': pageNumber !== page
               }
             )}
@@ -89,7 +89,7 @@ const Pagination = ({ queryConfig, pageSize, pathname, className, setPage }: Pro
             className={classNames(
               'mx-1 flex h-8 w-8 cursor-pointer items-center justify-center text-center text-gray-600 shadow-sm rounded border-[1px]',
               {
-                'bg-[#26C6DA]/30  border-[#26C6DA] ': pageNumber === page,
+                'bg-[#182642]/30  border-[#182642] ': pageNumber === page,
                 'border-x-gray-200': pageNumber !== page
               }
             )}
@@ -111,7 +111,7 @@ const Pagination = ({ queryConfig, pageSize, pathname, className, setPage }: Pro
               viewBox='0 0 24 24'
               strokeWidth='1.5'
               stroke='currentColor'
-              className='h-4 w-4 text-[#26C6DA]'
+              className='h-4 w-4 text-[#182642]'
             >
               <path strokeLinecap='round' strokeLinejoin='round' d='M15.75 19.5L8.25 12l7.5-7.5' />
             </svg>
@@ -127,7 +127,7 @@ const Pagination = ({ queryConfig, pageSize, pathname, className, setPage }: Pro
               viewBox='0 0 24 24'
               strokeWidth='1.5'
               stroke='currentColor'
-              className='h-4 w-4 text-[#26C6DA]'
+              className='h-4 w-4 text-[#182642]'
             >
               <path strokeLinecap='round' strokeLinejoin='round' d='M15.75 19.5L8.25 12l7.5-7.5' />
             </svg>
@@ -149,7 +149,7 @@ const Pagination = ({ queryConfig, pageSize, pathname, className, setPage }: Pro
               viewBox='0 0 24 24'
               strokeWidth='1.5'
               stroke='currentColor'
-              className='h-4 w-4 text-[#26C6DA]'
+              className='h-4 w-4 text-[#182642]'
             >
               <path strokeLinecap='round' strokeLinejoin='round' d='M15.75 19.5L8.25 12l7.5-7.5' />
             </svg>
@@ -166,7 +166,7 @@ const Pagination = ({ queryConfig, pageSize, pathname, className, setPage }: Pro
               viewBox='0 0 24 24'
               strokeWidth='1.5'
               stroke='currentColor'
-              className='h-4 w-4 text-[#26C6DA]'
+              className='h-4 w-4 text-[#182642]'
             >
               <path strokeLinecap='round' strokeLinejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' />
             </svg>
@@ -182,7 +182,7 @@ const Pagination = ({ queryConfig, pageSize, pathname, className, setPage }: Pro
               viewBox='0 0 24 24'
               strokeWidth='1.5'
               stroke='currentColor'
-              className='h-4 w-4 text-[#26C6DA]'
+              className='h-4 w-4 text-[#182642]'
             >
               <path strokeLinecap='round' strokeLinejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' />
             </svg>
@@ -204,7 +204,7 @@ const Pagination = ({ queryConfig, pageSize, pathname, className, setPage }: Pro
               viewBox='0 0 24 24'
               strokeWidth='1.5'
               stroke='currentColor'
-              className='h-4 w-4 text-[#26C6DA]'
+              className='h-4 w-4 text-[#182642]'
             >
               <path strokeLinecap='round' strokeLinejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' />
             </svg>

@@ -1,17 +1,15 @@
-import { Fragment, useContext } from 'react'
+import { Fragment } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link, useNavigate } from 'react-router-dom'
 import path from 'src/modules/Share/constants/path'
 import RegisterForm from '../../components/RegisterForm'
-import { AppContext } from 'src/modules/Share/contexts'
 import { useForm } from 'react-hook-form'
 import { FormRegisterSchema, FormRegisterType } from '../../utils'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { RegisterCommandHandler } from '../../services'
+import { toast } from 'react-toastify'
 
 const Register = () => {
-  const { setIsAuthenticated } = useContext(AppContext)
-
   const navigate = useNavigate()
 
   const {
@@ -28,8 +26,8 @@ const Register = () => {
     registerCommandHandler.handle(
       data,
       () => {
-        setIsAuthenticated(true)
-        navigate(path.home)
+        navigate(path.login)
+        toast.success('Đăng kí tài khoản thành công !')
       },
       (error: any) => {
         console.log(error)

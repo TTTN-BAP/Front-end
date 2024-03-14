@@ -7,6 +7,7 @@ import HttpStatusCode from '../constants/httpStatusCode'
 class Http {
   instance: AxiosInstance
   private accessToken: string
+
   constructor() {
     this.accessToken = getAccessTokenFromLocalStorage()
     this.instance = axios.create({
@@ -31,10 +32,12 @@ class Http {
     this.instance.interceptors.response.use(
       (response) => {
         const { url } = response.config
-        if (url === '/auth.php' || url === '/register.php') {
+        if (url === '/auth.php') {
           const data = response.data as AuthResponse
           this.accessToken = data.token
-          setAccessTokenToLocalStorage(this.accessToken)
+          if (this.accessToken !== undefined) {
+            setAccessTokenToLocalStorage(this.accessToken)
+          }
         }
         return response
       },

@@ -13,7 +13,7 @@ import ProfilePage from 'src/modules/Profile/pages/ProfilePage'
 
 const ProtectedRoute = () => {
   const { isAuthenticated } = useContext(AppContext)
-  return !isAuthenticated ? <Outlet /> : <Navigate to={path.login} />
+  return isAuthenticated ? <Outlet /> : <Navigate to={path.login} />
 }
 
 const RejectedRoute = () => {
@@ -45,6 +45,22 @@ const useRouteElements = () => {
                 <Register />
               </Suspense>
             </AuthenticationLayout>
+          )
+        }
+      ]
+    },
+    {
+      path: '',
+      element: <ProtectedRoute />,
+      children: [
+        {
+          path: path.profile,
+          element: (
+            <HomePageLayout>
+              <Suspense>
+                <ProfilePage />
+              </Suspense>
+            </HomePageLayout>
           )
         }
       ]

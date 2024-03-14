@@ -59,16 +59,14 @@ const Container = () => {
           <FilterJob control={FilterJobForm.control} onResetForm={handleResetFormFilter} />
         </form>
       </div>
-      <div className='gap-y-4 mx-12 mt-8 gap-6'>
-        {jobs && jobs.map((job) => <JobItem job={job} key={job.id} />)}
-        <div className='my-6'>
-          <Pagination
-            queryConfig={queryJobConfig}
-            pageSize={getAllJobsQuery.getTotalPages()}
-            pathname={path.home}
-            className='flex justify-end'
-          />
-        </div>
+      <div className='gap-y-4 mx-12 mt-8 gap-6'>{jobs && jobs.map((job) => <JobItem job={job} key={job.id} />)}</div>
+      <div className='my-6 mx-12'>
+        <Pagination
+          queryConfig={queryJobConfig}
+          pageSize={getAllJobsQuery.getTotalPages()}
+          pathname={path.home}
+          className='flex justify-end'
+        />
       </div>
     </div>
   )

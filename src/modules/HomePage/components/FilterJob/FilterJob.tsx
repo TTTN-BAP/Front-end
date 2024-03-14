@@ -16,7 +16,7 @@ const FilterJob = ({ control, onResetForm }: Props) => {
         <Controller
           name='search'
           control={control}
-          render={({ field: { onChange, value }, fieldState: { error } }) => (
+          render={({ field: { onChange, value } }) => (
             <div>
               <TextField
                 id='search'
@@ -26,7 +26,6 @@ const FilterJob = ({ control, onResetForm }: Props) => {
                 value={value}
                 onChange={onChange}
               />
-              <span className='block min-h-[16px] text-red-600 text-xs mt-1 font-medium'>{error?.message}</span>
             </div>
           )}
         />
@@ -73,7 +72,7 @@ const FilterJob = ({ control, onResetForm }: Props) => {
         <Controller
           name='job_experience'
           control={control}
-          render={({ field: { onChange, value }, fieldState: { error } }) => (
+          render={({ field: { onChange, value } }) => (
             <div>
               <TextField
                 id='job_experience'
@@ -83,7 +82,6 @@ const FilterJob = ({ control, onResetForm }: Props) => {
                 value={value}
                 onChange={onChange}
               />
-              <span className='block min-h-[16px] text-red-600 text-xs mt-1 font-medium'>{error?.message}</span>
             </div>
           )}
         />
@@ -92,7 +90,7 @@ const FilterJob = ({ control, onResetForm }: Props) => {
         <Controller
           name='job_salary'
           control={control}
-          render={({ field: { onChange, value }, fieldState: { error } }) => (
+          render={({ field: { onChange, value } }) => (
             <div>
               <TextField
                 id='job_salary'
@@ -102,7 +100,6 @@ const FilterJob = ({ control, onResetForm }: Props) => {
                 value={value}
                 onChange={onChange}
               />
-              <span className='block min-h-[16px] text-red-600 text-xs mt-1 font-medium'>{error?.message}</span>
             </div>
           )}
         />
@@ -110,7 +107,7 @@ const FilterJob = ({ control, onResetForm }: Props) => {
       <div className='flex items-start justify-end gap-4 '>
         <Button
           type='button'
-          classNameButton='bg-[#26C6DA] py-4 px-6 rounded-lg text-[16px] text-white font-semibold hover:bg-[#26C6DA]/70'
+          classNameButton='bg-[#182642] py-4 px-6 rounded-lg text-[16px] text-white font-semibold hover:bg-[#182642]/70'
           onClick={onResetForm}
         >
           Làm mới

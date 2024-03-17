@@ -1,10 +1,30 @@
 import { formatDate } from 'src/modules/Share/utils'
 import { JobType } from '../../interfaces'
+import { useEffect, useState } from 'react'
+import JobItem from '../JobItem'
 
 interface Props {
   job: JobType
 }
+
 const DetailJob = ({ job }: Props) => {
+  const [jobsRecommender, setJobsRecommender] = useState<JobType[]>()
+
+  useEffect(() => {
+    if (job) {
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: job.id })
+      }
+      fetch('http://127.0.0.1:5000/content-based-with-job', requestOptions)
+        .then((response) => response.json())
+        .then((data) => {
+          setJobsRecommender(data)
+        })
+    }
+  }, [job])
+
   return (
     job && (
       <div className='m-12 flex flex-col gap-y-4 '>
@@ -52,6 +72,12 @@ const DetailJob = ({ job }: Props) => {
           <ul className='list-disc list-inside'>
             <li>{formatDate(job.job_expired_date)}</li>
           </ul>
+        </div>
+        <div>
+          <h2 className='font-semibold text-[20px]'>ĐỀ XUẤT CÔNG VIỆC TƯƠNG TỰ</h2>
+          <div className='gap-y-4 gap-6 mt-6'>
+            {jobsRecommender !== undefined && jobsRecommender.map((job) => <JobItem job={job} key={job.id} />)}
+          </div>
         </div>
       </div>
     )

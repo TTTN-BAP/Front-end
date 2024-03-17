@@ -3,7 +3,7 @@ import Profile from '../../components/Profile'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { FormProfileSchema, FormProfileType } from '../../utils'
 import { toast } from 'react-toastify'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AppContext } from 'src/modules/Share/contexts'
 import { GetUserIdQuery } from 'src/modules/Authentication/services'
 import { GetProfileQuery } from '../../services/getProfile.query'
@@ -14,17 +14,44 @@ import Button from 'src/modules/Share/components/Button'
 import path from 'src/modules/Share/constants/path'
 import { clearTokenFromLocalStorage } from 'src/modules/Authentication/utils'
 import { useNavigate } from 'react-router-dom'
+import { JobType } from 'src/modules/HomePage/interfaces'
+import JobItem from 'src/modules/HomePage/components/JobItem'
 
 function ProfilePage() {
   const { isAuthenticated, setIsAuthenticated } = useContext(AppContext)
-
-  const navigate = useNavigate()
+  const [jobsRecommender, setJobsRecommender] = useState<JobType[]>()
 
   const getUserId = new GetUserIdQuery(isAuthenticated)
   const userId = getUserId.fetch()
 
   const getProfileQuery = new GetProfileQuery(isAuthenticated, userId)
   const profile = getProfileQuery.fetch()
+
+  useEffect(() => {
+    if (profile) {
+      const body = JSON.stringify({
+        cv_target: profile.cv_target,
+        cv_academi_level: profile.cv_academi_level,
+        cv_skill: profile.cv_skill,
+        cv_interest: profile.cv_interest
+      })
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: body
+      }
+      fetch('http://127.0.0.1:5000/content-based-with-cv', requestOptions)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data)
+          setJobsRecommender(data)
+        })
+    }
+  }, [profile, setJobsRecommender])
+
+  console.log(jobsRecommender && jobsRecommender)
+
+  const navigate = useNavigate()
 
   const { handleSubmit, control, setValue } = useForm<FormProfileType>({
     resolver: yupResolver(FormProfileSchema)
@@ -87,6 +114,12 @@ function ProfilePage() {
             isLoading={editProfileCommandHandler.isLoading()}
           />
         </form>
+      </div>
+      <div className='mx-12'>
+        <h2 className='font-semibold text-[20px]'>ĐỀ XUẤT CÔNG VIỆC PHÙ HỢP VỚI THÔNG TIN CÁ NHÂN</h2>
+        <div className='gap-y-4 gap-6 mt-6'>
+          {jobsRecommender !== undefined && jobsRecommender.map((job) => <JobItem job={job} key={job.id} />)}
+        </div>
       </div>
       <Footer />
     </div>

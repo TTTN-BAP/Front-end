@@ -9,7 +9,7 @@ import { formatDate } from 'src/modules/Share/utils'
 interface Props {
   control: Control<FormProfileType>
   setValue: UseFormSetValue<FormProfileType>
-  profile: ProfileType
+  profile: ProfileType | undefined
   isLoading: boolean
 }
 
@@ -41,6 +41,7 @@ const Profile = ({ control, profile, setValue, isLoading }: Props) => {
       setValue('cv_interest', profile.cv_interest)
     }
   }
+
   return (
     <Fragment>
       <div className='grid grid-cols-2 gap-x-6 gap-y-2'>

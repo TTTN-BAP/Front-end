@@ -9,6 +9,7 @@ import { FormSignInSchema } from '../../utils/rules/sign_in.rules'
 import { SignInCommandHandler } from '../../services'
 import path from 'src/modules/Share/constants/path'
 import SignInForm from '../../components/SignInForm'
+import { toast } from 'react-toastify'
 
 const SignIn = () => {
   const { setIsAuthenticated } = useContext(AppContext)
@@ -34,6 +35,7 @@ const SignIn = () => {
       },
       (error: any) => {
         console.log(error)
+        toast.error('Thông tin đăng nhập không chính xác!')
       }
     )
   })

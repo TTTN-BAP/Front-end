@@ -8,7 +8,7 @@ class GetProfileQuery {
     this._query = useQuery({
       queryKey: ['profile'],
       queryFn: () => profileAPI.getProfile(id),
-      enabled: isAuthenticated === true && id !== null && id !== undefined,
+      enabled: isAuthenticated === true && id !== '' && id !== undefined,
       staleTime: 3 * 60 * 1000
     })
   }
